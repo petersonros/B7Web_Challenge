@@ -19,7 +19,6 @@ function playSound(sound){
         audioElement.currentTime = 0;
         audioElement.play();
     }
-
     if(keyElement){
         keyElement.classList.add('active');
 
@@ -31,14 +30,10 @@ function playSound(sound){
 
 function playComposition(songArray){
     let wait = 0;
-
-
     for(let songIten of songArray){
         setTimeout(() => {  
             playSound(`key${songIten}`);
         }, wait);
-
         wait += 250;
-
     }
 }
