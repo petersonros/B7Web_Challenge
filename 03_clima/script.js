@@ -1,45 +1,54 @@
-document.querySelector('.busca').addEventListener('submit', async (event)=>{
+document.querySelector('.busca').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     let input = document.querySelector('#searchInput').value;
-
-    if(input !== ''){
+    
+    if(input !== '') {
+        clearInfo();
         showWarning('Carregando...');
 
-        let url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(input)}&appid={90fff3fb333fce8566bd5d3294c8c8a9}&units=metric&lang=pt_br`
-
-        let results = await fetch(url);
+        let results = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=
+        ${encodeURI(input)}&units=metric&lang=pt_br&appid=90fff3fb333fce8566bd5d3294c8c8a9`);
         let json = await results.json();
 
-        console.log(json);
-
-        if(jason.cod === 200){
+        if(json.cod === 200) {
             showInfo({
                 name: json.name,
                 country: json.sys.country,
-                temp:json.main.temp,
+                temp: json.main.temp,
                 tempIcon: json.weather[0].icon,
                 windSpeed: json.wind.speed,
-                windAngle: json.wind.deg,
+                windAngle: json.wind.deg
             });
         } else {
-            showWarning('Não encontramos essa localização.');
+            clearInfo();
+            showWarning('Não encontramos esta localização.');
         }
-
+    } else {
+        clearInfo();
     }
 });
 
-function showInfo(json){
+function showInfo(obj) {
     showWarning('');
 
-    document.querySelector('.resultado').style.display = 'block';
-    document.querySelector('.titulo').innerHTML = `${json.name}, ${json.country}`;
-    document.querySelector('.tempInfo').innerHTML = `${json.temp} <sup>ºC</sup:>`;
-    document.querySelector('.ventoInfo').innerHTML = `${json.windSpeed} <span>km\h</span>`;
+    document.querySelector('.titulo').innerHTML = `${obj.name}, ${obj.country}`;
+    
+    document.querySelector('.tempInfo').innerHTML = `${obj.temp} <sup>ºC</sup>`;
+    document.querySelector('.ventoInfo').innerHTML = `${obj.windSpeed} <span>km/h</span>`;
 
-    document.querySelector('.temp img').setAttribute(`src`, `http://openweathermap.org/img/wn/${json.tempIcon}@2x.png`);
+    document.querySelector('.temp img').setAttribute('src', `http://openweathermap.org/img/wn/${obj.tempIcon}@2x.png`);
+    
+    document.querySelector('.ventoPonto').style.transform = `rotate(${obj.windAngle-90}deg)`;
+
+    document.querySelector('.resultado').style.display = 'block';
 }
 
-function showWarning(msg){
+function clearInfo() {
+    showWarning('');
+    document.querySelector('.resultado').style.display = 'none';
+}
+
+function showWarning(msg) {
     document.querySelector('.aviso').innerHTML = msg;
 }
