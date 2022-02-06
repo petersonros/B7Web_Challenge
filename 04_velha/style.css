@@ -25,6 +25,7 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     margin-top: 30px;
 }
+
 .area .item {
     width: 100px;
     height: 100px;
