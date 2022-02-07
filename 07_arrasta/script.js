@@ -41,7 +41,7 @@ function dragLeave(e){
     e.currentTarget.classList.remove('hover');
 }
 
-// drop nas caixinhas
+// drop in box
 function drop(e){
     e.currentTarget.classList.remove('hover');
 
@@ -84,8 +84,27 @@ function updateAreas() {
     });
 
     if(areas.a === '1' && areas.b === '2' && areas.c === '3') {
+        document.querySelector('.areas').classList.remove('error');
         document.querySelector('.areas').classList.add('correct');
-    } else {
+    } else if (areas.a === null | areas.b === null | areas.c ===null) {
+        document.querySelector('.areas').classList.remove('error');
         document.querySelector('.areas').classList.remove('correct');
+    } else if (areas.a !== '1' | areas.b !== '2' | areas.c !== '3'){
+        document.querySelector('.areas').classList.remove('correct');
+        document.querySelector('.areas').classList.add('error');
     }
 }
+
+// testando Error
+/* 
+if(areas.a === '1' && areas.b === '2' && areas.c === '3') {
+        document.querySelector('.areas').classList.remove('error');
+        document.querySelector('.areas').classList.add('correct');
+    }else if(areas.a === null | areas.b === null | areas.c === null){
+        document.querySelector('.areas').classList.remove('error');
+        document.querySelector('.areas').classList.remove('correct');
+    }else if(areas.a !== '1' | areas.b !== '2' | areas.c !== '3') {
+        document.querySelector('.areas').classList.remove('correct');
+        document.querySelector('.areas').classList.add('error');
+    }
+     */

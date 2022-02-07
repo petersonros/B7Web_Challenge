@@ -60,6 +60,13 @@ h1 {
 .hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
+/* inicio teste error  */
+ 
+.areas.error .area {
+    border: 2px solid #FF0000;
+}
+
+/* final teste error  */
 footer {
     margin-top: 20px;
     color: #FFF;
