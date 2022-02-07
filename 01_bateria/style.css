@@ -3,6 +3,15 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+header {
+    background-color: black;
+    color: white;
+    height: 10vh;
+    padding: 10px;
+    text-align: center;
+}
+
 body {
     display: flex;
     min-height: 100vh;
@@ -17,15 +26,18 @@ h1 {
     color: #FFF;
     margin-bottom: 20px;
 }
+
 .keys {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
+
 .key {
     width: 80px;
     height: 80px;
     border: 2px solid #FFF;
+    border-radius: 9px;
     color: #FFF;
     display: flex;
     justify-content: center;
@@ -33,9 +45,10 @@ h1 {
     font-size: 30px;
     font-weight: bold;
 }
+
 .key.active {
-    border: 2px solid #FF0;
-    color: #FF0;
+    border: 2px solid gold;
+    color: gold;
 }
 
 .composer {
@@ -45,6 +58,8 @@ h1 {
 .composer #input {
     width: 100%;
     outline: none;
+    border: 3px solid grey;
+    border-radius: 9px;
     font-size: 17px;
     padding: 10px 15px;
 }
@@ -53,6 +68,7 @@ h1 {
     height: 40px;
     background: none;
     border: 2px solid #FFF;
+    border-radius: 9px;
     color: #FFF;
     font-size: 16px;
     margin-top: 10px;

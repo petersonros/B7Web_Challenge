@@ -29,41 +29,44 @@ h1 {
 }
 
 .area {
-    width: 1260px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    margin-top: 30px;
+    gap: 1px;
 }
 
 .area .item {
-    width: 180px;
-    height: 35px;
-    margin: 3px;
-    display: grid;
+    width: 170px;
+    height: 29px;
+    margin: 1px;
+    display: flex;
+    color: #FFF;
+    text-decoration: none;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
-    border: 1px solid gold;
-    border-radius: 9px;
+    border: 1px solid white;
+    border-radius: 13px 7px 21px 7px;
 }
 
 .item:hover {
-    /* background-color: rgba(0, 0, 0, 0.1); */
-    background-color: coral;
+    text-decoration: none;
+    background-color: black;
+    border: 2px solid gold;
+    color: gold;
 }
 
 .container {
     flex: 1 0 auto;
 }
 
-.nav {
+/* .nav {
     text-decoration: none;
     color: white;
 }
 .nav:hover {
     color: gold;
-}
+} */
 
 footer {
     flex-shrink: 0;
